@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,18 +54,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="ComiketSystem\Common\CSBaseNotifyPoropertyChanged.cs" />
+    <Compile Include="ComiketSystem\Common\CSSettingsBase.cs" />
+    <Compile Include="ComiketSystem\Common\ICSLogger.cs" />
+    <Compile Include="ComiketSystem\Common\ICSSettings.cs" />
+    <Compile Include="ComiketSystem\Csv\CsvMaker.cs" />
+    <Compile Include="ComiketSystem\Csv\CsvSplitter.cs" />
+    <Compile Include="ComiketSystem\Log\CsvLogRecorder.cs" />
+    <Compile Include="ComiketSystem\Log\LogData.cs" />
+    <Compile Include="ComiketSystem\Log\LoggedEventArgs.cs" />
+    <Compile Include="ComiketSystem\Log\Logger.cs" />
+    <Compile Include="ComiketSystem\Log\LogRecorder.cs" />
+    <Compile Include="ComiketSystem\Log\PassLogger.cs" />
+    <Compile Include="ComiketSystem\Settings\DataContractSettingsSerializer.cs" />
+    <Compile Include="ComiketSystem\Settings\ISettingsSerializer.cs" />
+    <Compile Include="ComiketSystem\Settings\SettingsAutoSaver.cs" />
+    <Compile Include="ComiketSystem\Settings\SettingsImpl.cs" />
+    <Compile Include="ComiketSystem\WPFDispatcher.cs" />
+    <Compile Include="Models\BaseNotifyPropertyChanged.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Views\MonitorContainerControl.xaml.cs">
+      <DependentUpon>MonitorContainerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PostureControl.xaml.cs">
+      <DependentUpon>PostureControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MonitorContainerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PostureControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -84,6 +117,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ComiketSystem\Readme.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,11 +137,7 @@
       <Name>DroneManipulator.OpenGLMonitor</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

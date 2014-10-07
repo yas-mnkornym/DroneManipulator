@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DroneManipulator.Simulator
+namespace DroneManipulator.Simulator.Views
 {
 	/// <summary>
-	/// MainWindow.xaml の相互作用ロジック
+	/// PostureControl.xaml の相互作用ロジック
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class PostureControl : UserControl
 	{
-		public MainWindow()
+		public PostureControl()
 		{
 			InitializeComponent();
 		}

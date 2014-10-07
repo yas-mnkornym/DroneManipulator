@@ -1,0 +1,73 @@
+﻿<Window x:Class="DroneManipulator.Simulator.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:controls="clr-namespace:DroneManipulator.Simulator.Views"
+        Title="DroneManipulator.Simulator" Height="600" Width="800">
+    <Grid Margin="2">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+        
+		<!-- Monitors -->
+		<!-- Actual -->
+		<DockPanel
+			Grid.Row="0" Grid.Column="0"
+			Margin="2">
+			<TextBlock
+				DockPanel.Dock="Top"
+				Text="Actual"
+				HorizontalAlignment="Stretch"
+				TextAlignment="Center"
+				Background="LightBlue" />
+			
+			<Border
+				DockPanel.Dock="Bottom"
+				BorderThickness="1,0,1,1"
+				BorderBrush="LightBlue">
+				<controls:MonitorContainerControl />
+			</Border>
+		</DockPanel>
+
+		<!-- Expected -->
+		<DockPanel
+			Grid.Row="0" Grid.Column="1"
+			Margin="2">
+			<TextBlock
+				DockPanel.Dock="Top"
+				Text="Expected"
+				HorizontalAlignment="Stretch"
+				TextAlignment="Center"
+				Background="LightGreen" />
+
+			<Border
+				DockPanel.Dock="Bottom"
+				BorderThickness="1,0,1,1"
+				BorderBrush="LightGreen">
+				<controls:MonitorContainerControl />
+			</Border>
+		</DockPanel>
+
+		<!-- Info / Manipulators -->
+		<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+			<StackPanel Orientation="Horizontal">
+				<StackPanel Margin="5,0,0,0">
+					<TextBlock Text="Actual" TextDecorations="Underline" />
+					<controls:PostureControl DataContext="{Binding Path=ActualPosture,Mode=OneWay}" />
+				</StackPanel>
+				<StackPanel Margin="5,0,0,0">
+					<TextBlock Text="Expected" TextDecorations="Underline" />
+					<controls:PostureControl DataContext="{Binding Path=ExpectedPosture,Mode=OneWay}" />
+				</StackPanel>
+				<StackPanel Margin="5,0,0,0">
+					<TextBlock Text="Difference" TextDecorations="Underline" />
+					<controls:PostureControl DataContext="{Binding Path=PostureDifference,Mode=OneWay}" />
+				</StackPanel>
+			</StackPanel>
+		</Grid>
+    </Grid>
+</Window>
