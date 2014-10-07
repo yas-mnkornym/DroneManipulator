@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="DronePosture.cs" />
     <Compile Include="IDroneDetector.cs" />
+    <Compile Include="IDronesMonitor.cs" />
     <Compile Include="ISensor.cs" />
     <Compile Include="LaserPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
