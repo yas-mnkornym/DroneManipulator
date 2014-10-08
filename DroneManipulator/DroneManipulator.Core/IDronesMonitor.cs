@@ -16,7 +16,7 @@ namespace DroneManipulator
 		/// <summary>
 		/// Gets the control for manipulation monitor as a WPF control.
 		/// </summary>
-		object ManipulatorControl { get; set; }
+		object ManipulatorControl { get; }
 
 		/// <summary>
 		/// Updates drones posture.
