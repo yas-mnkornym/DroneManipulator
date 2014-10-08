@@ -29,7 +29,7 @@
 				DockPanel.Dock="Bottom"
 				BorderThickness="1,0,1,1"
 				BorderBrush="LightBlue">
-				<controls:MonitorContainerControl />
+				<controls:MonitorContainerControl DataContext="{Binding Path=ActualMonitorViewModel}" />
 			</Border>
 		</DockPanel>
 
@@ -48,7 +48,7 @@
 				DockPanel.Dock="Bottom"
 				BorderThickness="1,0,1,1"
 				BorderBrush="LightGreen">
-				<controls:MonitorContainerControl />
+				<controls:MonitorContainerControl DataContext="{Binding Path=ActualMonitorViewModel}" />
 			</Border>
 		</DockPanel>
 
