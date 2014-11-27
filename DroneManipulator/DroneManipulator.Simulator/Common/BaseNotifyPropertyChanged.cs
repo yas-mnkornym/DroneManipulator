@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Linq.Expressions;
 
-namespace DroneManipulator.Simulator.Models
+namespace DroneManipulator.Simulator
 {
 	internal class BaseNotifyPropertyChanged : INotifyPropertyChanged, INotifyPropertyChanging
 	{

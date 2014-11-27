@@ -17,7 +17,11 @@ namespace DroneManipulator.Simulator
 		{
 			base.OnStartup(e);
 
-			MainWindow = new Views.MainWindow();
+			// create and show the main window.
+			var window = new Views.MainWindow();
+			var vm = new ViewModels.MainWindowViewModel(window.Dispatcher);
+			window.DataContext = vm;
+			MainWindow = window;
 			MainWindow.Show();
 		}
 	}

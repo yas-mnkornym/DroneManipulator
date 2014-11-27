@@ -71,8 +71,10 @@
     <Compile Include="ComiketSystem\Settings\SettingsAutoSaver.cs" />
     <Compile Include="ComiketSystem\Settings\SettingsImpl.cs" />
     <Compile Include="ComiketSystem\WPFDispatcher.cs" />
-    <Compile Include="Models\BaseNotifyPropertyChanged.cs" />
+    <Compile Include="Common\BaseNotifyPropertyChanged.cs" />
     <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MonitorContainerViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -137,7 +139,9 @@
       <Name>DroneManipulator.OpenGLMonitor</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
