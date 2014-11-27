@@ -27,7 +27,20 @@ namespace DroneManipulator.Simulator.ViewModels
 				ManipulatorControl = expectedMonitor.ManipulatorControl
 			};
 			ExpectedMonitorViewModel = expectedMonitorVM;
+
+			var posture = new DronePosture {
+				X = 1.0,
+				Y = 2.0,
+				Z = 10.0,
+				RotationX = 1.0,
+				RotationY = 30.0,
+				RotationZ = 20.0
+			};
+
+			actualMonitor.Update(new DronePosture[] { posture });
+			expectedMonitor.Update(new DronePosture[] { posture });
 		}
+		
 
 		#region Bindings
 		#region ActualMonitorViewModel

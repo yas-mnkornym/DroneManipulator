@@ -63,84 +63,26 @@ namespace DroneManipulator.OpenGLMonitor.ViewModels
 			gl.Viewport(0, 0, (int)windowWidth, (int)windowHeight);
 			gl.LoadIdentity();
 
-			gl.PushMatrix();
-			gl.Translate(0.0, 0.0, -2);
-			gl.Rotate(60f, 150f, 60f);
+			// 回転とかうんことか
+			if (postures_ != null) {
+				foreach (var posture in postures_) {
+					gl.PushMatrix();
+					gl.Translate(posture.X, posture.Y, -posture.Z);
+					gl.Rotate((float)posture.RotationX, (float)posture.RotationY, (float)-posture.RotationZ);
 
-			
-			gl.Color(1.0, 0.0, 1.0, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(-0.5f, -0.5f, 0.0f);
-			gl.Vertex(0.5f, -0.5f, 0.0f);
-			gl.Vertex(0.5f, 0.5f, 0.0f);
-			gl.Vertex(-0.5f, 0.5f, 0.0f);
-			/*
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[0]);
-			gl.Vertex(vertices_[1]);
-			gl.Vertex(vertices_[2]);
-			gl.Vertex(vertices_[3]);
-			gl.End();
+					gl.Color(1.0, 0.0, 1.0, 1.0);
 
-			gl.Color(0, 1, 0, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[4]);
-			gl.Vertex(vertices_[5]);
-			gl.Vertex(vertices_[6]);
-			gl.Vertex(vertices_[7]);
-			gl.End();
+					// 左回り
+					gl.Begin(OpenGL.GL_POLYGON);
+					gl.Vertex(-0.5f, -0.5f, 0.0f);
+					gl.Vertex(0.5f, -0.5f, 0.0f);
+					gl.Vertex(0.5f, 0.5f, 0.0f);
+					gl.Vertex(-0.5f, 0.5f, 0.0f);
+					gl.End();
 
-			gl.Color(0, 0, 1, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[1]);
-			gl.Vertex(vertices_[4]);
-			gl.Vertex(vertices_[7]);
-			gl.Vertex(vertices_[2]);
-			gl.End();
-
-
-			gl.Color(1, 1, 0, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[5]);
-			gl.Vertex(vertices_[0]);
-			gl.Vertex(vertices_[3]);
-			gl.Vertex(vertices_[6]);
-			gl.End();
-
-			gl.Color(1, 0, 1, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[3]);
-			gl.Vertex(vertices_[2]);
-			gl.Vertex(vertices_[7]);
-			gl.Vertex(vertices_[6]);
-			gl.End();
-
-			gl.Color(1, 1, 1, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[1]);
-			gl.Vertex(vertices_[0]);
-			gl.Vertex(vertices_[5]);
-			gl.Vertex(vertices_[4]);
-			gl.End();
-
-			gl.Color(0.5, 0.5, 1.0, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[0]);
-			gl.Vertex(vertices_[1]);
-			gl.Vertex(vertices_[2]);
-			gl.Vertex(vertices_[3]);
-			gl.End();
-
-			gl.Color(0.5, 0.5, 0.0, 1.0);
-			gl.Begin(OpenGL.GL_POLYGON);
-			gl.Vertex(vertices_[0]);
-			gl.Vertex(vertices_[1]);
-			gl.Vertex(vertices_[2]);
-			gl.Vertex(vertices_[3]);
-			 * */
-			gl.End();
-
-			gl.PopMatrix();
+					gl.PopMatrix();
+				}
+			}
 		}
 		#endregion // Draw
 		#endregion // OpenGL
